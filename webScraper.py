@@ -33,15 +33,13 @@ for file_name in file_list:
             paragraphs = soup.find_all('p')
 
             # Obtener los textos de los párrafos
-            paragraphs_text = []
-            for p in paragraphs:
-                paragraphs_text.append(p.text)
+            paragraphs_text = [p.text for p in paragraphs]
 
             # Agregar la lista de párrafos al diccionario
             parsed_dict[file_name] = paragraphs_text
 
 # Nombre del archivo de salida
-output_file = "resultado.txt"
+output_file = "resultadoCrudo.txt"
 
 # Guardar el diccionario en un archivo de texto
 with open(output_file, "w") as file:

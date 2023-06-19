@@ -43,10 +43,25 @@ def dictionaryCleaner(dictionary:dict):
     
     return dictionary
 
-file_name ="resultado.txt"
+def saveDictionaryToFile(dictionary:dict, file_name:str):
+    with open(file_name, 'w') as file:
+        for key, values in dictionary.items():
+            file.write(f"Archivo:{key}\n")
+            file.write(f"Contenido:\n\n")
+            
+            for value in values:
+                file.write(f"{value}\n")
+            file.write("\n")
+
+file_name ="resultadoCrudo.txt"
 divider = '-----------------------------'
 
 dictionary = processer(fileName=file_name,divider=divider) 
 dictionary = dictionaryCleaner(dictionary=dictionary)
 
-print(dictionary) 
+for key in dictionary:
+    print(f'(key: {key}, value: [{dictionary[key][:1]},...])\n') 
+
+
+output_file_name = "resultadoProcesado.txt"
+saveDictionaryToFile(dictionary, output_file_name)
