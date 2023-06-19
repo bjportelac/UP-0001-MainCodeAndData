@@ -49,5 +49,4 @@ divider = '-----------------------------'
 dictionary = processer(fileName=file_name,divider=divider) 
 dictionary = dictionaryCleaner(dictionary=dictionary)
 
-for key in dictionary:
-    print(f'(key: {key}, value: [{dictionary[key][:1]},...])\n') 
+print(dictionary) 
